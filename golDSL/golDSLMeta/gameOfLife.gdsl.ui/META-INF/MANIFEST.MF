@@ -1,0 +1,26 @@
+Manifest-Version: 1.0
+Automatic-Module-Name: gameOfLife.gdsl.ui
+Bundle-ManifestVersion: 2
+Bundle-Name: gameOfLife.gdsl.ui
+Bundle-Vendor: My Company
+Bundle-Version: 1.0.0.qualifier
+Bundle-SymbolicName: gameOfLife.gdsl.ui; singleton:=true
+Bundle-ActivationPolicy: lazy
+Require-Bundle: gameOfLife.gdsl,
+ gameOfLife.gdsl.ide,
+ org.eclipse.xtext.ui,
+ org.eclipse.xtext.ui.shared,
+ org.eclipse.xtext.ui.codetemplates.ui,
+ org.eclipse.ui.editors;bundle-version="3.14.300",
+ org.eclipse.ui.ide;bundle-version="3.18.500",
+ org.eclipse.ui,
+ org.eclipse.xtext.xbase.lib;bundle-version="2.36.0",
+ org.eclipse.compare,
+ org.eclipse.xtext.builder,
+ org.eclipse.xtend.lib;bundle-version="2.36.0";resolution:=optional
+Import-Package: org.apache.log4j
+Bundle-RequiredExecutionEnvironment: JavaSE-21
+Export-Package: gameOfLife.model.ui.contentassist,
+ gameOfLife.model.ui.quickfix,
+ gameOfLife.gdsl.ui.internal
+Bundle-Activator: gameOfLife.gdsl.ui.internal.GdslActivator
