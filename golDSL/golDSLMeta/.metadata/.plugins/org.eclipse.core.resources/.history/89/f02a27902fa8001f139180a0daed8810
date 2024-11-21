@@ -1,0 +1,30 @@
+grammar gameOfLife.model.GDSL with org.eclipse.xtext.common.Terminals
+
+generate gDSL "http://www.model.gameOfLife/GDSL"
+
+Planning: 'Planning' name = ID
+(persons += Person | tasks += Task)*
+;
+Person: 'Person:' name=ID
+;
+Task: 'Task:' action = Action
+'persons:' persons += [Person]+
+'priority:' prio = INT
+('duration:' dl = INT unit = TimeUnit)?
+;
+Action: LunchAction | MeetingAction | PaperAction | PaymentAction
+;
+LunchAction: 'Lunch' location = ID
+;
+MeetingAction: 'Meeting' topic = STRING
+;
+PaperAction: 'Report' report = ID
+;
+PaymentAction: 'Pay' amount = INT 'euro'
+;
+enum TimeUnit:
+MINUTE = 'min' |
+HOUR = 'hour' |
+DAY = 'day' |
+WEEK = 'week'
+;

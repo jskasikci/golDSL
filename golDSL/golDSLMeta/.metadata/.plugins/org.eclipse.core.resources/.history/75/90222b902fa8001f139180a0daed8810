@@ -1,0 +1,5 @@
+package gameOfLife.model.generator
+
+class TextGenerator {
+	
+}

@@ -16,7 +16,8 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link gameOfLife.model.gDSL.Model#getGreetings <em>Greetings</em>}</li>
+ *   <li>{@link gameOfLife.model.gDSL.Model#getGrid <em>Grid</em>}</li>
+ *   <li>{@link gameOfLife.model.gDSL.Model#getRules <em>Rules</em>}</li>
  * </ul>
  *
  * @see gameOfLife.model.gDSL.GDSLPackage#getModel()
@@ -26,15 +27,37 @@ import org.eclipse.emf.ecore.EObject;
 public interface Model extends EObject
 {
   /**
-   * Returns the value of the '<em><b>Greetings</b></em>' containment reference list.
-   * The list contents are of type {@link gameOfLife.model.gDSL.Greeting}.
+   * Returns the value of the '<em><b>Grid</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Greetings</em>' containment reference list.
-   * @see gameOfLife.model.gDSL.GDSLPackage#getModel_Greetings()
+   * @return the value of the '<em>Grid</em>' containment reference.
+   * @see #setGrid(Grid)
+   * @see gameOfLife.model.gDSL.GDSLPackage#getModel_Grid()
    * @model containment="true"
    * @generated
    */
-  EList<Greeting> getGreetings();
+  Grid getGrid();
+
+  /**
+   * Sets the value of the '{@link gameOfLife.model.gDSL.Model#getGrid <em>Grid</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Grid</em>' containment reference.
+   * @see #getGrid()
+   * @generated
+   */
+  void setGrid(Grid value);
+
+  /**
+   * Returns the value of the '<em><b>Rules</b></em>' containment reference list.
+   * The list contents are of type {@link gameOfLife.model.gDSL.Rule}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Rules</em>' containment reference list.
+   * @see gameOfLife.model.gDSL.GDSLPackage#getModel_Rules()
+   * @model containment="true"
+   * @generated
+   */
+  EList<Rule> getRules();
 
 } // Model

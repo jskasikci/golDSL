@@ -1,0 +1,3 @@
+alive :  = 2 : survive
+alive :  = 3 : survive
+dead :  < 3 : becomeAlive

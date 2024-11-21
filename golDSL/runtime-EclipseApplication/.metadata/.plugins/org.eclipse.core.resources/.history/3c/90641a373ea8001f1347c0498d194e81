@@ -1,0 +1,3 @@
+alive : neighbors = 2 : survive
+alive : neighbors = 3 : survive
+dead : neighbors = 3 : becomeAlive

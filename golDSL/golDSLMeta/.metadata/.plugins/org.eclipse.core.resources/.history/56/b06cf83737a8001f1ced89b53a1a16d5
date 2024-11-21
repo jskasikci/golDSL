@@ -1,0 +1,49 @@
+package gameOfLife.model.generator
+
+import gameOfLife.model.gDSL.LunchAction
+import gameOfLife.model.gDSL.MeetingAction
+import gameOfLife.model.gDSL.PaperAction
+import gameOfLife.model.gDSL.PaymentAction
+import gameOfLife.model.gDSL.Planning
+import gameOfLife.model.gDSL.Task
+import gameOfLife.model.gDSL.TimeUnit
+
+class TextGenerator {
+	def static toText(Planning root)'''
+        package GameOfLife;
+
+        import java.awt.Point;
+        import java.util.ArrayList;
+
+        public class RulesOfLife {
+            public static void computeSurvivors(boolean[][] gameBoard, ArrayList<Point> survivingCells) {
+                for (int i=1; i<gameBoard.length-1; i++) {
+                    for (int j=1; j<gameBoard[0].length-1; j++) {
+                        int surrounding = 0;
+                        surrounding += (gameBoard[i-1][j-1] ? 1 : 0);
+                        surrounding += (gameBoard[i-1][j] ? 1 : 0);
+                        surrounding += (gameBoard[i-1][j+1] ? 1 : 0);
+                        surrounding += (gameBoard[i][j-1] ? 1 : 0);
+                        surrounding += (gameBoard[i][j+1] ? 1 : 0);
+                        surrounding += (gameBoard[i+1][j-1] ? 1 : 0);
+                        surrounding += (gameBoard[i+1][j] ? 1 : 0);
+                        surrounding += (gameBoard[i+1][j+1] ? 1 : 0);
+
+                        if ((!gameBoard[i][j] && surrounding == 3) || (gameBoard[i][j] && surrounding == 2)) {
+                            survivingCells.add(new Point(i-1, j-1));
+                        }
+                    }
+                }
+            }
+        }
+    	'''	
+		
+		def static CharSequence toText(TimeUnit u){
+			switch(u){
+				case TimeUnit::MINUTE: return '''m'''
+				case TimeUnit::HOUR: return '''h'''
+				case TimeUnit::DAY: return '''d'''
+				case TimeUnit::WEEK: return '''w'''
+			}
+	}
+}
