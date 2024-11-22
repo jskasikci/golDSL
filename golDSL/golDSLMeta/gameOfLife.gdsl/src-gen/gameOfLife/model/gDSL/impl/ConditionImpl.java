@@ -38,7 +38,7 @@ public class ConditionImpl extends MinimalEObjectImpl.Container implements Condi
    * @generated
    * @ordered
    */
-  protected static final RelationalOperator OPERATOR_EDEFAULT = RelationalOperator.LESS_THAN;
+  protected static final RelationalOperator OPERATOR_EDEFAULT = RelationalOperator.GREATER_THAN;
 
   /**
    * The cached value of the '{@link #getOperator() <em>Operator</em>}' attribute.

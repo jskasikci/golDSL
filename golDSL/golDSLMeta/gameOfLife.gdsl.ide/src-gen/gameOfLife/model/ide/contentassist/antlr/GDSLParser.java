@@ -39,6 +39,7 @@ public class GDSLParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getGridAccess().getGroup_2(), "rule__Grid__Group_2__0");
 			builder.put(grammarAccess.getRangeAccess().getGroup(), "rule__Range__Group__0");
 			builder.put(grammarAccess.getRuleAccess().getGroup(), "rule__Rule__Group__0");
+			builder.put(grammarAccess.getRuleAccess().getGroup_5(), "rule__Rule__Group_5__0");
 			builder.put(grammarAccess.getConditionAccess().getGroup(), "rule__Condition__Group__0");
 			builder.put(grammarAccess.getModelAccess().getGridAssignment_0(), "rule__Model__GridAssignment_0");
 			builder.put(grammarAccess.getModelAccess().getRulesAssignment_1(), "rule__Model__RulesAssignment_1");
@@ -46,9 +47,9 @@ public class GDSLParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getGridAccess().getRangesAssignment_2_1(), "rule__Grid__RangesAssignment_2_1");
 			builder.put(grammarAccess.getRangeAccess().getStartAssignment_0(), "rule__Range__StartAssignment_0");
 			builder.put(grammarAccess.getRangeAccess().getEndAssignment_2(), "rule__Range__EndAssignment_2");
-			builder.put(grammarAccess.getRuleAccess().getStateAssignment_0(), "rule__Rule__StateAssignment_0");
-			builder.put(grammarAccess.getRuleAccess().getConditionAssignment_2(), "rule__Rule__ConditionAssignment_2");
-			builder.put(grammarAccess.getRuleAccess().getActionAssignment_4(), "rule__Rule__ActionAssignment_4");
+			builder.put(grammarAccess.getRuleAccess().getStateAssignment_4(), "rule__Rule__StateAssignment_4");
+			builder.put(grammarAccess.getRuleAccess().getConditionAssignment_5_2(), "rule__Rule__ConditionAssignment_5_2");
+			builder.put(grammarAccess.getRuleAccess().getActionAssignment_7(), "rule__Rule__ActionAssignment_7");
 			builder.put(grammarAccess.getConditionAccess().getOperatorAssignment_0(), "rule__Condition__OperatorAssignment_0");
 			builder.put(grammarAccess.getConditionAccess().getValueAssignment_1(), "rule__Condition__ValueAssignment_1");
 		}

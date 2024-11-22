@@ -260,12 +260,28 @@ ruleRule returns [EObject current=null]
 	leaveRule();
 }:
 	(
+		otherlv_0='Rule:'
+		{
+			newLeafNode(otherlv_0, grammarAccess.getRuleAccess().getRuleKeyword_0());
+		}
+		otherlv_1='if'
+		{
+			newLeafNode(otherlv_1, grammarAccess.getRuleAccess().getIfKeyword_1());
+		}
+		otherlv_2='cell'
+		{
+			newLeafNode(otherlv_2, grammarAccess.getRuleAccess().getCellKeyword_2());
+		}
+		otherlv_3='is'
+		{
+			newLeafNode(otherlv_3, grammarAccess.getRuleAccess().getIsKeyword_3());
+		}
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getRuleAccess().getStateCellStateEnumRuleCall_0_0());
+					newCompositeNode(grammarAccess.getRuleAccess().getStateCellStateEnumRuleCall_4_0());
 				}
-				lv_state_0_0=ruleCellState
+				lv_state_4_0=ruleCellState
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getRuleRule());
@@ -273,45 +289,51 @@ ruleRule returns [EObject current=null]
 					set(
 						$current,
 						"state",
-						lv_state_0_0,
+						lv_state_4_0,
 						"gameOfLife.model.GDSL.CellState");
 					afterParserOrEnumRuleCall();
 				}
 			)
 		)
-		otherlv_1=':'
-		{
-			newLeafNode(otherlv_1, grammarAccess.getRuleAccess().getColonKeyword_1());
-		}
 		(
+			otherlv_5='and'
+			{
+				newLeafNode(otherlv_5, grammarAccess.getRuleAccess().getAndKeyword_5_0());
+			}
+			otherlv_6='neighbor'
+			{
+				newLeafNode(otherlv_6, grammarAccess.getRuleAccess().getNeighborKeyword_5_1());
+			}
 			(
-				{
-					newCompositeNode(grammarAccess.getRuleAccess().getConditionConditionParserRuleCall_2_0());
-				}
-				lv_condition_2_0=ruleCondition
-				{
-					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getRuleRule());
+				(
+					{
+						newCompositeNode(grammarAccess.getRuleAccess().getConditionConditionParserRuleCall_5_2_0());
 					}
-					set(
-						$current,
-						"condition",
-						lv_condition_2_0,
-						"gameOfLife.model.GDSL.Condition");
-					afterParserOrEnumRuleCall();
-				}
+					lv_condition_7_0=ruleCondition
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getRuleRule());
+						}
+						set(
+							$current,
+							"condition",
+							lv_condition_7_0,
+							"gameOfLife.model.GDSL.Condition");
+						afterParserOrEnumRuleCall();
+					}
+				)
 			)
-		)
-		otherlv_3=':'
+		)?
+		otherlv_8='then'
 		{
-			newLeafNode(otherlv_3, grammarAccess.getRuleAccess().getColonKeyword_3());
+			newLeafNode(otherlv_8, grammarAccess.getRuleAccess().getThenKeyword_6());
 		}
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getRuleAccess().getActionActionEnumRuleCall_4_0());
+					newCompositeNode(grammarAccess.getRuleAccess().getActionActionEnumRuleCall_7_0());
 				}
-				lv_action_4_0=ruleAction
+				lv_action_9_0=ruleAction
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getRuleRule());
@@ -319,7 +341,7 @@ ruleRule returns [EObject current=null]
 					set(
 						$current,
 						"action",
-						lv_action_4_0,
+						lv_action_9_0,
 						"gameOfLife.model.GDSL.Action");
 					afterParserOrEnumRuleCall();
 				}
@@ -421,26 +443,26 @@ ruleRelationalOperator returns [Enumerator current=null]
 }:
 	(
 		(
-			enumLiteral_0='<'
+			enumLiteral_0='>'
 			{
-				$current = grammarAccess.getRelationalOperatorAccess().getLESS_THANEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_0, grammarAccess.getRelationalOperatorAccess().getLESS_THANEnumLiteralDeclaration_0());
+				$current = grammarAccess.getRelationalOperatorAccess().getGREATER_THANEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_0, grammarAccess.getRelationalOperatorAccess().getGREATER_THANEnumLiteralDeclaration_0());
 			}
 		)
 		    |
 		(
-			enumLiteral_1='='
+			enumLiteral_1='<'
 			{
-				$current = grammarAccess.getRelationalOperatorAccess().getEQUALEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_1, grammarAccess.getRelationalOperatorAccess().getEQUALEnumLiteralDeclaration_1());
+				$current = grammarAccess.getRelationalOperatorAccess().getLESS_THANEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_1, grammarAccess.getRelationalOperatorAccess().getLESS_THANEnumLiteralDeclaration_1());
 			}
 		)
 		    |
 		(
-			enumLiteral_2='>'
+			enumLiteral_2='='
 			{
-				$current = grammarAccess.getRelationalOperatorAccess().getGREATER_THANEnumLiteralDeclaration_2().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_2, grammarAccess.getRelationalOperatorAccess().getGREATER_THANEnumLiteralDeclaration_2());
+				$current = grammarAccess.getRelationalOperatorAccess().getEQUALEnumLiteralDeclaration_2().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_2, grammarAccess.getRelationalOperatorAccess().getEQUALEnumLiteralDeclaration_2());
 			}
 		)
 	)

@@ -3,6 +3,7 @@
 	<item key="hasShownOverlayPopupBefore" value="true"/>
 	<item key="replaceBarOpen" value="false"/>
 	<list key="searchhistory">
+		<item value="randomly"/>
 		<item value="d_game"/>
 		<item value="d_gameboard"/>
 		<item value="block_size"/>

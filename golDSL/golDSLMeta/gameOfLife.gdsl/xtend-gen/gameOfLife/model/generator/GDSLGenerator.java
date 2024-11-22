@@ -17,7 +17,7 @@ public class GDSLGenerator extends AbstractGenerator {
   public void doGenerate(final Resource resource, final IFileSystemAccess2 fsa, final IGeneratorContext context) {
     final Model root = IteratorExtensions.<Model>head(Iterators.<Model>filter(resource.getAllContents(), Model.class));
     if ((root != null)) {
-      fsa.generateFile("RulesOfLife.java", TextGenerator.toText(root));
+      fsa.generateFile("RulesOfLife.java", RuleGenerator.toText(root));
     }
   }
 }

@@ -460,9 +460,9 @@ public class GDSLPackageImpl extends EPackageImpl implements GDSLPackage
     addEEnumLiteral(cellStateEEnum, CellState.DEAD);
 
     initEEnum(relationalOperatorEEnum, RelationalOperator.class, "RelationalOperator");
+    addEEnumLiteral(relationalOperatorEEnum, RelationalOperator.GREATER_THAN);
     addEEnumLiteral(relationalOperatorEEnum, RelationalOperator.LESS_THAN);
     addEEnumLiteral(relationalOperatorEEnum, RelationalOperator.EQUAL);
-    addEEnumLiteral(relationalOperatorEEnum, RelationalOperator.GREATER_THAN);
 
     initEEnum(actionEEnum, Action.class, "Action");
     addEEnumLiteral(actionEEnum, Action.SURVIVE);

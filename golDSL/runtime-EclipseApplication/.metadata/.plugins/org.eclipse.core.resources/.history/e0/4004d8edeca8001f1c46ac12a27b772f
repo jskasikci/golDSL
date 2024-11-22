@@ -1,0 +1,7 @@
+Grid 0-5 : 6-10 : 2-8 : 11-11
+
+Rule: if cell is alive and neighbor count is equal to 2 then survive
+Rule: if cell is alive and neighbor count is bigger than 3 then survive
+Rule: if cell is dead and neighbor count is less than 3 then becomeAlive
+
+Rule: if cell is dead and neighbourcount > 3 then becomeAlive

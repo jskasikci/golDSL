@@ -1,0 +1,3 @@
+Rule: if cell is alive and neighbor = 2 then survive
+Rule: if cell is alive and neighbor = 3 then survive
+Rule: if cell is dead and neighbor = 3 then becomeAlive

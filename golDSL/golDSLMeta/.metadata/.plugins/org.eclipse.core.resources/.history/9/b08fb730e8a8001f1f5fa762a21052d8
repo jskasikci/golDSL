@@ -1,0 +1,38 @@
+grammar gameOfLife.model.GDSL with org.eclipse.xtext.common.Terminals
+
+generate gDSL "http://www.model.gameOfLife/GDSL"
+
+Model: 
+    grid=Grid? // Optional grid definition
+    rules+=Rule*;
+    
+Grid:
+    'Grid' ranges+=Range (':' ranges+=Range)*;
+
+Range:
+    start=INT '-' end=INT;
+
+Rule:
+    'if' 'cell' 'is' state=CellState
+    ('and' 'neighbourCount' condition=Condition)?
+    'then' action=Action;
+
+// CellState represents the state of the cell (alive or dead)
+enum CellState:
+    ALIVE = 'alive' |
+    DEAD = 'dead';
+    
+// Condition with operator and value
+Condition:
+    operator=RelationalOperator value=INT;
+    
+// RelationalOperator for neighbourCount comparisons
+enum RelationalOperator:
+    LESS_THAN = '<' |
+    EQUAL = '=' |
+    GREATER_THAN = '>';
+    
+// Action defines what happens to the cell
+enum Action:
+    SURVIVE = 'survive' |
+    BECOME_ALIVE = 'becomeAlive';

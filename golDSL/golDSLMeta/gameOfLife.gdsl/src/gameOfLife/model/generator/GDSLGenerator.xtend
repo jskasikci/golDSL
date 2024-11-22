@@ -15,7 +15,7 @@ class GDSLGenerator extends AbstractGenerator {
     override void doGenerate(Resource resource, IFileSystemAccess2 fsa, IGeneratorContext context) {
         val root = resource.allContents.filter(Model).head
         if (root !== null) {
-            fsa.generateFile("RulesOfLife.java", TextGenerator.toText(root))
+            fsa.generateFile("RulesOfLife.java", RuleGenerator.toText(root))
         }
     }
 }

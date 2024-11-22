@@ -33,15 +33,15 @@ public class GDSLGrammarAccess extends AbstractElementFinder.AbstractGrammarElem
 		private final RuleCall cRulesRuleParserRuleCall_1_0 = (RuleCall)cRulesAssignment_1.eContents().get(0);
 		
 		//Model:
-		//    grid=Grid? // Optional grid definition
+		//    (grid=Grid)? // Optional grid definition
 		//    rules+=Rule*;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//grid=Grid? // Optional grid definition
+		//(grid=Grid)? // Optional grid definition
 		//rules+=Rule*
 		public Group getGroup() { return cGroup; }
 		
-		//grid=Grid?
+		//(grid=Grid)?
 		public Assignment getGridAssignment_0() { return cGridAssignment_0; }
 		
 		//Grid
@@ -66,8 +66,7 @@ public class GDSLGrammarAccess extends AbstractElementFinder.AbstractGrammarElem
 		private final RuleCall cRangesRangeParserRuleCall_2_1_0 = (RuleCall)cRangesAssignment_2_1.eContents().get(0);
 		
 		//Grid:
-		//    'Grid' ranges+=Range (':' ranges+=Range)*
-		//;
+		//    'Grid' ranges+=Range (':' ranges+=Range)*;
 		@Override public ParserRule getRule() { return rule; }
 		
 		//'Grid' ranges+=Range (':' ranges+=Range)*
@@ -104,8 +103,7 @@ public class GDSLGrammarAccess extends AbstractElementFinder.AbstractGrammarElem
 		private final RuleCall cEndINTTerminalRuleCall_2_0 = (RuleCall)cEndAssignment_2.eContents().get(0);
 		
 		//Range:
-		//    start=INT '-' end=INT
-		//;
+		//    start=INT '-' end=INT;
 		@Override public ParserRule getRule() { return rule; }
 		
 		//start=INT '-' end=INT
@@ -129,44 +127,73 @@ public class GDSLGrammarAccess extends AbstractElementFinder.AbstractGrammarElem
 	public class RuleElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "gameOfLife.model.GDSL.Rule");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Assignment cStateAssignment_0 = (Assignment)cGroup.eContents().get(0);
-		private final RuleCall cStateCellStateEnumRuleCall_0_0 = (RuleCall)cStateAssignment_0.eContents().get(0);
-		private final Keyword cColonKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Assignment cConditionAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cConditionConditionParserRuleCall_2_0 = (RuleCall)cConditionAssignment_2.eContents().get(0);
-		private final Keyword cColonKeyword_3 = (Keyword)cGroup.eContents().get(3);
-		private final Assignment cActionAssignment_4 = (Assignment)cGroup.eContents().get(4);
-		private final RuleCall cActionActionEnumRuleCall_4_0 = (RuleCall)cActionAssignment_4.eContents().get(0);
+		private final Keyword cRuleKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Keyword cIfKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Keyword cCellKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Keyword cIsKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		private final Assignment cStateAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cStateCellStateEnumRuleCall_4_0 = (RuleCall)cStateAssignment_4.eContents().get(0);
+		private final Group cGroup_5 = (Group)cGroup.eContents().get(5);
+		private final Keyword cAndKeyword_5_0 = (Keyword)cGroup_5.eContents().get(0);
+		private final Keyword cNeighborKeyword_5_1 = (Keyword)cGroup_5.eContents().get(1);
+		private final Assignment cConditionAssignment_5_2 = (Assignment)cGroup_5.eContents().get(2);
+		private final RuleCall cConditionConditionParserRuleCall_5_2_0 = (RuleCall)cConditionAssignment_5_2.eContents().get(0);
+		private final Keyword cThenKeyword_6 = (Keyword)cGroup.eContents().get(6);
+		private final Assignment cActionAssignment_7 = (Assignment)cGroup.eContents().get(7);
+		private final RuleCall cActionActionEnumRuleCall_7_0 = (RuleCall)cActionAssignment_7.eContents().get(0);
 		
-		//Rule: state = CellState ':' condition=Condition ':' action=Action;
+		//Rule:
+		//    'Rule:' 'if' 'cell' 'is' state=CellState
+		//    ('and' 'neighbor' condition=Condition)?
+		//    'then' action=Action;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//state = CellState ':' condition=Condition ':' action=Action
+		//'Rule:' 'if' 'cell' 'is' state=CellState
+		//('and' 'neighbor' condition=Condition)?
+		//'then' action=Action
 		public Group getGroup() { return cGroup; }
 		
-		//state = CellState
-		public Assignment getStateAssignment_0() { return cStateAssignment_0; }
+		//'Rule:'
+		public Keyword getRuleKeyword_0() { return cRuleKeyword_0; }
+		
+		//'if'
+		public Keyword getIfKeyword_1() { return cIfKeyword_1; }
+		
+		//'cell'
+		public Keyword getCellKeyword_2() { return cCellKeyword_2; }
+		
+		//'is'
+		public Keyword getIsKeyword_3() { return cIsKeyword_3; }
+		
+		//state=CellState
+		public Assignment getStateAssignment_4() { return cStateAssignment_4; }
 		
 		//CellState
-		public RuleCall getStateCellStateEnumRuleCall_0_0() { return cStateCellStateEnumRuleCall_0_0; }
+		public RuleCall getStateCellStateEnumRuleCall_4_0() { return cStateCellStateEnumRuleCall_4_0; }
 		
-		//':'
-		public Keyword getColonKeyword_1() { return cColonKeyword_1; }
+		//('and' 'neighbor' condition=Condition)?
+		public Group getGroup_5() { return cGroup_5; }
+		
+		//'and'
+		public Keyword getAndKeyword_5_0() { return cAndKeyword_5_0; }
+		
+		//'neighbor'
+		public Keyword getNeighborKeyword_5_1() { return cNeighborKeyword_5_1; }
 		
 		//condition=Condition
-		public Assignment getConditionAssignment_2() { return cConditionAssignment_2; }
+		public Assignment getConditionAssignment_5_2() { return cConditionAssignment_5_2; }
 		
 		//Condition
-		public RuleCall getConditionConditionParserRuleCall_2_0() { return cConditionConditionParserRuleCall_2_0; }
+		public RuleCall getConditionConditionParserRuleCall_5_2_0() { return cConditionConditionParserRuleCall_5_2_0; }
 		
-		//':'
-		public Keyword getColonKeyword_3() { return cColonKeyword_3; }
+		//'then'
+		public Keyword getThenKeyword_6() { return cThenKeyword_6; }
 		
 		//action=Action
-		public Assignment getActionAssignment_4() { return cActionAssignment_4; }
+		public Assignment getActionAssignment_7() { return cActionAssignment_7; }
 		
 		//Action
-		public RuleCall getActionActionEnumRuleCall_4_0() { return cActionActionEnumRuleCall_4_0; }
+		public RuleCall getActionActionEnumRuleCall_7_0() { return cActionActionEnumRuleCall_7_0; }
 	}
 	public class ConditionElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "gameOfLife.model.GDSL.Condition");
@@ -228,41 +255,41 @@ public class GDSLGrammarAccess extends AbstractElementFinder.AbstractGrammarElem
 	public class RelationalOperatorElements extends AbstractElementFinder.AbstractEnumRuleElementFinder {
 		private final EnumRule rule = (EnumRule) GrammarUtil.findRuleForName(getGrammar(), "gameOfLife.model.GDSL.RelationalOperator");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final EnumLiteralDeclaration cLESS_THANEnumLiteralDeclaration_0 = (EnumLiteralDeclaration)cAlternatives.eContents().get(0);
-		private final Keyword cLESS_THANLessThanSignKeyword_0_0 = (Keyword)cLESS_THANEnumLiteralDeclaration_0.eContents().get(0);
-		private final EnumLiteralDeclaration cEQUALEnumLiteralDeclaration_1 = (EnumLiteralDeclaration)cAlternatives.eContents().get(1);
-		private final Keyword cEQUALEqualsSignKeyword_1_0 = (Keyword)cEQUALEnumLiteralDeclaration_1.eContents().get(0);
-		private final EnumLiteralDeclaration cGREATER_THANEnumLiteralDeclaration_2 = (EnumLiteralDeclaration)cAlternatives.eContents().get(2);
-		private final Keyword cGREATER_THANGreaterThanSignKeyword_2_0 = (Keyword)cGREATER_THANEnumLiteralDeclaration_2.eContents().get(0);
+		private final EnumLiteralDeclaration cGREATER_THANEnumLiteralDeclaration_0 = (EnumLiteralDeclaration)cAlternatives.eContents().get(0);
+		private final Keyword cGREATER_THANGreaterThanSignKeyword_0_0 = (Keyword)cGREATER_THANEnumLiteralDeclaration_0.eContents().get(0);
+		private final EnumLiteralDeclaration cLESS_THANEnumLiteralDeclaration_1 = (EnumLiteralDeclaration)cAlternatives.eContents().get(1);
+		private final Keyword cLESS_THANLessThanSignKeyword_1_0 = (Keyword)cLESS_THANEnumLiteralDeclaration_1.eContents().get(0);
+		private final EnumLiteralDeclaration cEQUALEnumLiteralDeclaration_2 = (EnumLiteralDeclaration)cAlternatives.eContents().get(2);
+		private final Keyword cEQUALEqualsSignKeyword_2_0 = (Keyword)cEQUALEnumLiteralDeclaration_2.eContents().get(0);
 		
 		//enum RelationalOperator:
+		//    GREATER_THAN = '>' |
 		//    LESS_THAN = '<' |
-		//    EQUAL = '=' |
-		//    GREATER_THAN = '>';
+		//    EQUAL = '=';
 		public EnumRule getRule() { return rule; }
 		
+		//GREATER_THAN = '>' |
 		//LESS_THAN = '<' |
-		//EQUAL = '=' |
-		//GREATER_THAN = '>'
+		//EQUAL = '='
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
-		//LESS_THAN = '<'
-		public EnumLiteralDeclaration getLESS_THANEnumLiteralDeclaration_0() { return cLESS_THANEnumLiteralDeclaration_0; }
-		
-		//'<'
-		public Keyword getLESS_THANLessThanSignKeyword_0_0() { return cLESS_THANLessThanSignKeyword_0_0; }
-		
-		//EQUAL = '='
-		public EnumLiteralDeclaration getEQUALEnumLiteralDeclaration_1() { return cEQUALEnumLiteralDeclaration_1; }
-		
-		//'='
-		public Keyword getEQUALEqualsSignKeyword_1_0() { return cEQUALEqualsSignKeyword_1_0; }
-		
 		//GREATER_THAN = '>'
-		public EnumLiteralDeclaration getGREATER_THANEnumLiteralDeclaration_2() { return cGREATER_THANEnumLiteralDeclaration_2; }
+		public EnumLiteralDeclaration getGREATER_THANEnumLiteralDeclaration_0() { return cGREATER_THANEnumLiteralDeclaration_0; }
 		
 		//'>'
-		public Keyword getGREATER_THANGreaterThanSignKeyword_2_0() { return cGREATER_THANGreaterThanSignKeyword_2_0; }
+		public Keyword getGREATER_THANGreaterThanSignKeyword_0_0() { return cGREATER_THANGreaterThanSignKeyword_0_0; }
+		
+		//LESS_THAN = '<'
+		public EnumLiteralDeclaration getLESS_THANEnumLiteralDeclaration_1() { return cLESS_THANEnumLiteralDeclaration_1; }
+		
+		//'<'
+		public Keyword getLESS_THANLessThanSignKeyword_1_0() { return cLESS_THANLessThanSignKeyword_1_0; }
+		
+		//EQUAL = '='
+		public EnumLiteralDeclaration getEQUALEnumLiteralDeclaration_2() { return cEQUALEnumLiteralDeclaration_2; }
+		
+		//'='
+		public Keyword getEQUALEqualsSignKeyword_2_0() { return cEQUALEqualsSignKeyword_2_0; }
 	}
 	public class ActionElements extends AbstractElementFinder.AbstractEnumRuleElementFinder {
 		private final EnumRule rule = (EnumRule) GrammarUtil.findRuleForName(getGrammar(), "gameOfLife.model.GDSL.Action");
@@ -350,7 +377,7 @@ public class GDSLGrammarAccess extends AbstractElementFinder.AbstractGrammarElem
 
 	
 	//Model:
-	//    grid=Grid? // Optional grid definition
+	//    (grid=Grid)? // Optional grid definition
 	//    rules+=Rule*;
 	public ModelElements getModelAccess() {
 		return pModel;
@@ -361,8 +388,7 @@ public class GDSLGrammarAccess extends AbstractElementFinder.AbstractGrammarElem
 	}
 	
 	//Grid:
-	//    'Grid' ranges+=Range (':' ranges+=Range)*
-	//;
+	//    'Grid' ranges+=Range (':' ranges+=Range)*;
 	public GridElements getGridAccess() {
 		return pGrid;
 	}
@@ -372,8 +398,7 @@ public class GDSLGrammarAccess extends AbstractElementFinder.AbstractGrammarElem
 	}
 	
 	//Range:
-	//    start=INT '-' end=INT
-	//;
+	//    start=INT '-' end=INT;
 	public RangeElements getRangeAccess() {
 		return pRange;
 	}
@@ -382,7 +407,10 @@ public class GDSLGrammarAccess extends AbstractElementFinder.AbstractGrammarElem
 		return getRangeAccess().getRule();
 	}
 	
-	//Rule: state = CellState ':' condition=Condition ':' action=Action;
+	//Rule:
+	//    'Rule:' 'if' 'cell' 'is' state=CellState
+	//    ('and' 'neighbor' condition=Condition)?
+	//    'then' action=Action;
 	public RuleElements getRuleAccess() {
 		return pRule;
 	}
@@ -413,9 +441,9 @@ public class GDSLGrammarAccess extends AbstractElementFinder.AbstractGrammarElem
 	}
 	
 	//enum RelationalOperator:
+	//    GREATER_THAN = '>' |
 	//    LESS_THAN = '<' |
-	//    EQUAL = '=' |
-	//    GREATER_THAN = '>';
+	//    EQUAL = '=';
 	public RelationalOperatorElements getRelationalOperatorAccess() {
 		return eRelationalOperator;
 	}
